@@ -1,5 +1,8 @@
+
+
 .podcast-container {
   max-width: 1000px;
+
   margin: 0 auto;
   padding: 20px;
 }
@@ -55,9 +58,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  padding: 0 1rem;
+  gap: 1 rem;
+  padding: 5rem;
+  height:fit-content
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover img {
+  animation: jump 0.5s infinite;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 
 .nav ul { 
@@ -75,4 +115,9 @@
 
 .logo{
   width: 5%;
+}
+
+.swiper {
+  width: 600px;
+  height: 300px;
 }
