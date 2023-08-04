@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+
 const genreTitleMapping = {
   1: 'Personal Growth',
   2: 'True Crime and Investigative Journalism',
@@ -11,15 +12,18 @@ const genreTitleMapping = {
   8: 'News',
   9: 'Kids and Family',
 };
+
+
 const SearchSort = ({ searchQuery, handleSearchChange, sortBy, handleSortChange }) => {
   const [sortState, setSortState] = useState(sortBy);
   const sortShows = (criteria) => {
     setSortState(criteria);
     handleSortChange(criteria);
   };
+
   return (
     <div className="search-sort-container">
-      <input type="text" placeholder=":mag:Search shows" value={searchQuery} onChange={handleSearchChange} />
+      <input type="text" placeholder=" Search shows" value={searchQuery} onChange={handleSearchChange} />
       <select id="sortDropdown" value={sortState} onChange={(e) => sortShows(e.target.value)}>
         <option value="default" disabled>
           Select an option

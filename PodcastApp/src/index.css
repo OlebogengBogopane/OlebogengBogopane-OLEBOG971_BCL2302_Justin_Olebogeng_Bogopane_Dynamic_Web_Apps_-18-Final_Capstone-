@@ -29,7 +29,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url(./assets/matrix.jpg);
+  background: url(./assets/plain-wallpaper.jpg);
+  background-repeat:inherit;
+  z-index: -10;
+  
 }
 
 h1 {

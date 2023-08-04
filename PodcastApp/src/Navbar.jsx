@@ -1,20 +1,49 @@
+import React from 'react';
+import './Navbar.css'; // Create this CSS file for styling
 
-export default function Navbar() {
-    return (
-        <nav className="nav">
-            
-            <a href="/" className="Site-title">Podcast Corner</a>
-            <img href="/" className="logo"  src="./public/Daco_4436880.png"/>
-          
-            <ul >
-                <li>
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <div className="logo">
+        <img src="https://cdn-icons-png.flaticon.com/128/1186/1186562.png" alt="Logo" />
+        <span>The Podcast Corner</span>
+
+        <div>
                     <a href="/blogs" className="blogs">Pods</a>
-                    </li>
-                    <li>
+                    
+                    
                     <a href="/about" className="about">About</a>
-                </li>
-            </ul>
-        </nav>
-    )
-}
 
+
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
+
+
+
+// import React from 'react';
+
+// import Sort from './components/Sort';
+
+// const Navbar = ({ searchQuery, handleSearchChange, sortBy, handleSortChange }) => {
+//   return (
+//     <header>
+//       <div className="logo"></div>
+//       <nav>
+//         <SearchSort
+//           searchQuery={searchQuery}
+//           handleSearchChange={handleSearchChange}
+//           sortBy={sortBy}
+//           handleSortChange={handleSortChange}
+//         />
+//         <button className="btnLogin-popup">Login 👤</button>
+//       </nav>
+//     </header>
+//   );
+// };
+
+// export default Navbar;
