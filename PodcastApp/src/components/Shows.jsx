@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import Season from "../components/Season";
 import ShowBody from "../components/ShowsBody";
+import Seasons from "./Season";
 
 export default function Shows() {
     const [showData, setShowData] = useState(null);
@@ -31,7 +31,7 @@ export default function Shows() {
             });
     };
 
-    const seasonAddress = (showId) => {
+    function seasonAddress  (showId)  {
         // You can perform actions here related to the selected show's ID (showId)
         // For now, we will just set the seasonsData to the selected show's ID
         setSeasonsData(showId);
@@ -39,9 +39,9 @@ export default function Shows() {
 
     return (
         <>
-            <Season seasonAPI={seasonsData} />
+            <Seasons Id={seasonsData} />
             <div className="shows-list">
-                {showData ? showData : <sl-spinner></sl-spinner>}
+                {showData  /* showData : <sl-spinner></sl-spinner> */}
             </div>
         </>
     );

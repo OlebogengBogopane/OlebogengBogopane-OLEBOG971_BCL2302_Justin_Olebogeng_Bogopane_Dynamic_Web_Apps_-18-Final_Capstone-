@@ -58,9 +58,7 @@ const Preview = () => {
                 <div className="image">
                   <img src={image} alt={title} className="preview-image" />
                   <div className="dots">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    
                   </div>
                 </div>
                 <div className="info">

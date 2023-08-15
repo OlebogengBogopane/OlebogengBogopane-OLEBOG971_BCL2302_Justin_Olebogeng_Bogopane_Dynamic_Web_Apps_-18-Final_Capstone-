@@ -1,45 +1,49 @@
 import React from 'react';
-import './Navbar.css'; // Create this CSS file for styling
+import { supabase } from './components/SupaBase';
 
-const Navbar = () => {
-  return (
-    <nav className="navbar">
-      <div className="logo">
-        <img src="https://cdn-icons-png.flaticon.com/128/1186/1186562.png" alt="Logo" />
-        <span>The Podcast Corner</span>
+const login = async () => {
+  await supabase.auth.signInWithOAuth({
+    provider: 'github'
+  })
+}
 
-        <div>
-                    <a href="/blogs" className="blogs">Pods</a>
-                    
-                    
-                    <a href="/about" className="about">About</a>
+export default function Navbar() {
+    return (
+        <nav className="nav">
+            
+           <div>
+             <h1 a href="/" className="Site-title" >Podcast Corner</h1>
 
+            <img href="/" className="logo"  src="https://www.svgrepo.com/show/474170/podcast.svg"/>
+            
+            </div>
+        
+          <div className="navigation">
+             
+                   <div>
+                        <button className='SignIN' onClick={login}>Sign In</button>
+                        <button className='SignOUT'onClick={() => supabase.auth.signOut()}>Sign Out</button>
 
-        </div>
-      </div>
-    </nav>
-  );
-};
+                   </div>
+                
 
-export default Navbar;
+             </div>
+        </nav>
+    )
+}
 
 
 
 // import React from 'react';
 
-// import Sort from './components/Sort';
+
 
 // const Navbar = ({ searchQuery, handleSearchChange, sortBy, handleSortChange }) => {
 //   return (
 //     <header>
 //       <div className="logo"></div>
 //       <nav>
-//         <SearchSort
-//           searchQuery={searchQuery}
-//           handleSearchChange={handleSearchChange}
-//           sortBy={sortBy}
-//           handleSortChange={handleSortChange}
-//         />
+      
 //         <button className="btnLogin-popup">Login 👤</button>
 //       </nav>
 //     </header>

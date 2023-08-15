@@ -1,12 +1,12 @@
 import React from 'react'
-import Podfiles from './Podfiles'
+import Main from './PodFiles'
 
 //import Preview from "./Preview"
 function App() {
 
   return (
 <>
-<Podfiles/>
+<Main/>
 
 
 </>
