@@ -1,4 +1,5 @@
 # OlebogengBogopane-OLEBOG971_BCL2302_Justin_Olebogeng_Bogopane_Dynamic_Web_Apps_Final_Capstone-
+link to PodcastApp = https://majestic-figolla-97ecf2.netlify.app/
 _Podcast Corner is designed to meet the following user standards_
 
 ✅Project is deployed to a custom Netlify URL
