@@ -7,9 +7,8 @@ import Navbar from './Navbar'
 import { supabase } from './components/SupaBase';
 import Log from './components/Login'
 import Carousel from './components/Swiper';
-// import FetchEpisode from './components/FetchEpisode'
 import Seasons from './components/Season';
-import { Login } from '@mui/icons-material';
+
 
 
 
@@ -118,31 +117,7 @@ function Main () {
     setSearchQuery(event.target.value);
   };
 
-  /* The `handleSortChange` function is responsible for handling the change in sorting criteria. It
-  takes a `criteria` parameter, which represents the selected sorting option. */
-  // const handleSortChange = (criteria) => {
-  //   setSortBy(criteria);
-  //   let sortedShows = [ ...showPreviews];
 
-  //     switch (criteria){
-  //     case 'titleAZ':
-  //   sortedShows.sort((a, b) => a.podcast.title.localeCompare(b.podcast.title));
-  //   break ; 
-  //     case 'titleZA':
-  //   sortedShows.sort((a, b) => b.podcast.title.localeCompare(a.podcast.title));
-  //   break ;
-  //     case 'DateUpdatedAscending':
-  //   sortedShows.sort((a, b) => new Date(a.podcast.updated) - new Date(b.podcast.updated));
-  //   break;  
-  //     case 'DateUpdatedDescending':
-  //   sortedShows.sort((a, b ) => new Date(b.podcast.updated) - new Date(a.podcast.updated));
-  //   break;  
-  //   default:
-  //     break;
-  //   }
-  //   setPodcasts([sortedShows]);
-    
-  // };
   const handleSort = (event) => {
     const option = event.target.value
     switch (option) {
@@ -174,22 +149,25 @@ function Main () {
     setAPIStore(id)
   }
 
-  const [fetchErrot,setfetchError]= useState(null)
+  const [fetchError,setfetchError]= useState(null)
   const [favouritesState,setFavouritesState]= useState(null)
+  const [favsRender , setFavsRender]= useState(null)
+  const [showFavs , setShowFavs]= useState(false)
+
   useEffect(() => {
     const fetchDAta = async () => {
       try{
         const { data , error } = await supabase
-        .from('favourite')
+        .from('favourites')
         .select()
 
         if(error) {
           setfetchError(error)
-          setfavouritesState(null)
+          setFavouritesState(null)
 
         } else {
           setfetchError(null)
-          setfavouritesState(data)
+          setFavouritesState(data)
         }
 
         } catch (error) {
@@ -202,12 +180,37 @@ function Main () {
       fetchDAta()
     },[])
 
+
+    useEffect(() => {
+
+      favs()
+      console.log(favouritesState)
+    }, [favouritesState])
+
+function favs(){
+  if(favouritesState){
+    const m = favouritesState.map((item) => {
+      return(
+        <>     
+          <h1 style={{color: 'rgba(31, 226, 161, 0.57)'}}>{item.title}</h1>
+          <audio controls>
+            <source src={item.audio} type="audio/mpeg" />
+          </audio>
+        </>
+      )
+    })
+
+    setFavsRender(m)
+  }
+}
+
+
+
   return (
     <>
      
     <Navbar  />
     <Carousel/>
-
 
    { user? <>
 
@@ -215,13 +218,6 @@ function Main () {
       Id={APIstore}
       />
      
-      
-      <SortBy
-      
-      onSort={handleSort}
-    
-      />
-    
     
       {selectedPodcast && (
         <Fragment>
@@ -239,42 +235,42 @@ function Main () {
           <p>Description:{selectedPodcast.description}</p>
 
         <p>Hello World</p>
+        
           <button onClick={clearSelectedPodcast}>Close</button>
         </div>
         </Fragment>
       )}
+
+
 
       {loading ? (
         <div className="loading-message">Loading...</div>
             ) :
            (<div className="podcast-container">
                {randomMovie &&  <div>
-                <div className='HeroImgOverlay'> 
-                <h1>Podcasts you may like</h1>
-                {/* <img src={randomMovie.image} className="HeroImg" /> */}
-                </div>
-                      <div className="HeroDetails">
+
+                <div className="HeroDetails">
+                      <h1>Podcasts you may like</h1>
                            <h2 className="title">{randomMovie.title}</h2>
                            <h3 className="seasons"> Seasons: {randomMovie.seasons}</h3>
                            {/* <p> Genre :{randomMovie.genre}</p> */}
                            {/* <p className="">{randomMovie.description}</p> */}
                        </div>
+               
+
               </div>}
-          {/* <div className="season-selector">
-            { Dropdown or buttons to select the season }
-            <select
-              value={selectedSeason}
-              onChange={(e) => setSelectedSeason(Number(e.target.value))}
-            >
-              <option value={null}>All Seasons</option>
-              { Assuming seasons are numbered from 1 to N }
-              {Array.from({ length: 70 }).map((_, index) => (
-                <option key={index} value={index + 1}>
-                  Season {index + 1}
-                </option>
-              ))}
-            </select>
-          </div> */}
+
+            
+              <SortBy
+          
+      onSort={handleSort}
+    
+      />
+
+
+              <button onClick={() => setShowFavs(!showFavs)}>Favourites</button>
+                {showFavs ? favsRender : ' '}
+         
 
           <div className="podcast-list">
 

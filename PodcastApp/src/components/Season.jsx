@@ -180,6 +180,7 @@ export default function Seasons(props) {
           <p>Description: {item.description}</p>
           <p>Episode: {item.episode}</p>
           <button className='Fav'
+          
 
 onClick={() => {
   const Faves = async () => {
@@ -209,8 +210,9 @@ onClick={() => {
 
   return (
     <div className="season-container">
-      <div className="episodes">{episodesData}</div>
+      
       <div className="seasons">{seasonsData}</div>
+      <div className="episodes">{episodesData}</div>
     </div>
   );
 }

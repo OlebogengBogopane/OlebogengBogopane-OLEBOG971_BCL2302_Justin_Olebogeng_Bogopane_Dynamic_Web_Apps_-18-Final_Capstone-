@@ -10,9 +10,9 @@ body {
   /* z-index: 1; */
 }
 
-.HeroImgOverlay{
+/* .HeroImgOverlay{
   background-color: rgba(0, 0, 0, 0.9);
-}
+} */
 
 .HeroDetails{
   position: relative;
@@ -52,7 +52,7 @@ font: bold;
 
 .logo:hover {
   transform: rotate(5deg) scale(1.1);
-  box-shadow:rgba(46, 195, 145, 0.736);
+  box-shadow:rgba(179, 58, 133, 0.736);
 
 }
 
@@ -92,7 +92,7 @@ padding: 6px;
   max-width: 90%;
 flex: 1;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   color: white;
   /* background:#ccc; */
 
@@ -100,16 +100,19 @@ flex: 1;
 } 
 
  .podcast-list {
+/* styles.css */
+
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-   /* Display 3 columns with equal width  */
-   gap: 20px; 
-   /* Spacing between cards  */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
  
- } 
+
 
  .podcast-card {
-  
+  width: 300px;
  display: flex;
  flex-direction: column;
  border: 1px solid #ccc; 
@@ -152,40 +155,92 @@ flex: 1;
   top:30%;
 }
 
+.HeroDetails {
+  background-color: rgba(27, 215, 80, 0.433);
+  
+}
+
 .HeroImg {
 width: 100%;
 height: 40%;
 
 }
 
-.carousel-container {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
+/* Carousel wrapper */
+.carousel-wrapper {
+  overflow: hidden;
   margin-top: 50px;
 }
+
+/* Carousel container */
+.carousel-container {
+  display: flex;
+  transition: transform 3s ease-in-out;
+}
+
+/* Show info container */
 .show-info {
   display: flex;
 }
-.show-info>div {
+
+/* Individual show card */
+.show-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
   margin-right: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
+
+.show-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.show-card h1 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Arrow icons */
 .arrow-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
 }
+
+.arrow-icon:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
 .backward {
   left: 10px;
 }
+
 .forward {
   right: 10px;
 }
- body {
+
+/* Body styles */
+body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #171616;
 }
+
+
 /* Hero Section Styles */
 .hero-section {
   position: relative;
@@ -193,8 +248,8 @@ height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 30vh;
-  padding: 10px;
+  height: 50vh;
+  padding-bottom: 100px;
   box-sizing: border-box;
 }
 .carousel-container {
@@ -258,4 +313,24 @@ height: 40%;
 .podcast-card:hover::before {
   opacity: 1;
   transform: translateY(0);
+}
+
+img{
+  width: 300px;
+}
+
+.HeroDetails{
+  padding-top: 90px;
+  color:  rgba(31, 226, 161, 0.57);
+}
+
+.season-container{
+  color: rgba(31, 226, 161, 0.57);
+}
+
+.season-container button{
+  background: rgba(31, 226, 161, 0.57);
+  border-radius: 40px;
+  width: 100px;
+  height: 30px;
 }

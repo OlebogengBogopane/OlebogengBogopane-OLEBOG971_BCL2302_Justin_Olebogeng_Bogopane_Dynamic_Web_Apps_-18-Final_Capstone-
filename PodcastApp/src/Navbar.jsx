@@ -7,7 +7,7 @@ const login = async () => {
   })
 }
 
-export default function Navbar() {
+export default function Navbar(prop ) {
     return (
         <nav className="nav">
             
@@ -33,21 +33,3 @@ export default function Navbar() {
 }
 
 
-
-// import React from 'react';
-
-
-
-// const Navbar = ({ searchQuery, handleSearchChange, sortBy, handleSortChange }) => {
-//   return (
-//     <header>
-//       <div className="logo"></div>
-//       <nav>
-      
-//         <button className="btnLogin-popup">Login 👤</button>
-//       </nav>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
